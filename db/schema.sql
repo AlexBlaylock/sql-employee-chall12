@@ -15,7 +15,7 @@ CREATE TABLE role (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
 --   (8, 2) means i can have 8 digits to the left of the decimal, 2 to the right.
-  salary DECIMAL(10, 2) NOT NULL,
+  salary DECIMAL(8) NOT NULL,
   department_id INT,
   FOREIGN KEY (department_id) REFERENCES department(id)
 );
