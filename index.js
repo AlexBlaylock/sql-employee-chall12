@@ -24,10 +24,51 @@ function mainMenu() {
         },
     ])
     
-    .then(async(answer)) => {
+    .then(async (answer) => {
         switch(answer.select) {
+            // view cases
+            case 'View all departments':
+                const departments = await queries.viewAllDepartments();
+                console.table(departments); 
+                break;
+            
+            case 'View all roles':
+                const roles = await queries.viewAllRoles();
+                console.table(roles);
+                break;
+
+            case 'View all employees':
+                const employees = await queries.viewAllEmployees();
+                console.table(employees);
+                break;
+
+            // console.table shows objects in table format
+
+            // add department, role, employee cases
+            case 'Add a department':
+                // add a inquirer prompt here so you can add department
+                inquirer
+                .prompt([
+                    {
+                        type: 'input',
+                        name: 'newDepartment',
+                        message: 'Enter a name for the new department:',
+                    },
+                ])
+
+                .then(async (answers) => {
+                    const { newDepartment } = answers;
+                    await queries.addDepartment(newDepartment);
+                    console.log(`Department '${newDepartment}' added successfully.`);
+                    mainMenu(); //returns us to the start
+                })
+                .catch((error) => {
+                    console.error('there was an error:', error);
+                    mainMenu();
+                });
+                break;
         }
-    }
+    })
 }
 
 mainMenu(); 
