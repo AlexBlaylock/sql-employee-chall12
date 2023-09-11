@@ -7,6 +7,7 @@ VALUES
     ('Sales'),
     ('Development'),
     ('Marketing');
+    
 INSERT INTO role (title, salary, department_id)
 VALUES
     ('Sales Manager', 77500, 1),
@@ -15,6 +16,7 @@ VALUES
     ('Hardware Developer', 85000, 2),
     ('Marketing Manager', 70000, 3),
     ('Marketing Member', 45000, 3);
+
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES 
     ('Gustavo', 'Fring', 1, NULL), -- gus is a sales manager, has no one to report to
