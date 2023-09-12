@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS company_db;
 
 CREATE DATABASE company_db;
-
+USE company_db;
 -- dept table
 DROP TABLE IF EXISTS department;
 CREATE TABLE department (
